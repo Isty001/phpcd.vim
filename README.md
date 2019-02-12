@@ -10,7 +10,7 @@ PHPCD is based on [phpcomplete.vim](https://github.com/shawncplus/phpcomplete.vi
 
 While phpcomplete.vim uses the tags file to fetch the context info, PHPCD uses PHP's Reflection mechanism to fetch the context info, and this is why PHPCD is faster. All the phpcomplete VimL code related the tags file has been droped and reimplemented.
 
-PHPCD consists of two parts. On part is written in VimL (mainly based on phpcomplete.vim), and the other in PHP. ~~The communication between the VimL part and the PHP part relies on NeoVim's MsgPack-RPC mechanism. This is why NeoVim is needed.~~ Both NeoVim and Vim 8.0+ are supported now. Thanks to NoeVims's MsgPack-RPC and Vim's Channel/Job mechanism.
+PHPCD consists of two parts. On part is written in VimL (mainly based on phpcomplete.vim), and the other in PHP. ~~The communication between the VimL part and the PHP part relies on NeoVim's MsgPack-RPC mechanism. This is why NeoVim is needed.~~ Both NeoVim and Vim 8.0+ are supported now. Thanks to NeoVims's MsgPack-RPC and Vim's Channel/Job mechanism.
 
 ##  Feature
  * Fast, Lightweight, Powerful, Smart
@@ -20,7 +20,7 @@ PHPCD consists of two parts. On part is written in VimL (mainly based on phpcomp
      - Recognize `/* @var $yourvar YourClass */`、 `/* @var YourClass $yourvar */` type mark comments
      - Recognize `$instance = new Class;` class instantiations
      - Recognize `(new Class)->` class instantiations
-     - ~~Recognize `$date = DateTime::createFromFormat(...)` built-in class return types~~
+     - Recognize `$date = DateTime::createFromFormat(...)` built-in class return types
      - Recognize both parameter type hinting and return hinting in function prototypes
      - Recognize types in `@param` lines in function docblocks
      - Recognize types in `@return` lines in function docblocks
@@ -28,6 +28,7 @@ PHPCD consists of two parts. On part is written in VimL (mainly based on phpcomp
      - Recognize array of objects via docblock like `$foo[42]->` or for variables created in `foreach`
      - Recognize property type by assignment in `__construct`
      - Recognize property type by **setter**
+ * Namespace autocompletion (you first need to do `composer dump-autoload -o`)
  * Displays docblock info in the preview for methods and properties
  * Support built-in class support with constants, methods and properties
  * Enhanced jump-to-definition on <kbd>ctrl</kbd>+<kbd>]</kbd>
@@ -36,7 +37,7 @@ PHPCD consists of two parts. On part is written in VimL (mainly based on phpcomp
 
 ### System requirement
 
- 1. [PHP 5.6+](http://php.net/)
+ 1. ~~[PHP 5.6+](http://php.net/)~~ The master branch only support php7. If you have to use php5, please use the [php5 branch](https://github.com/lvht/phpcd.vim/tree/php5).
  2. [PCNTL](http://php.net/manual/en/book.pcntl.php) Extension
  3. [Msgpack 0.5.7+(for NeoVim)](https://github.com/msgpack/msgpack-php) Extension or [JSON(for Vim 7.4+)](http://php.net/manual/en/intro.json.php) Extension
  4. ~~[Composer](https://getcomposer.org/) Project~~
